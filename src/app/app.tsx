@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Input } from "~/shared/ui";
+
 export const App = () => (
   <div className='app'>
     <blockquote>
@@ -11,7 +13,8 @@ export const App = () => (
       occaecat cupidatat non proident, sunt in culpa qui officia deserunt
       mollit anim id est laborum.
     </blockquote>
+
     {/* TODO: implement autocomplete component */}
-    <input/>
+    <Input />
   </div>
 )
