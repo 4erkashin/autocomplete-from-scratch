@@ -1,5 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
+
 import { Spinner } from './spinner';
+import styles from './input.module.css';
 
 type InputProps = {
   label: string;
@@ -21,9 +23,9 @@ export const Input: React.FC<InputProps> = ({ label }) => {
   return (
     <label>
       {label}
-      <div style={{ position: 'relative' }}>
+      <div className={styles.input}>
         <input type="text" value={inputValue} onChange={handleInputChange} />
-        <Spinner isVisible={showSpinner} style={{ right: '8px' }} aria-label="Loading" />
+        <Spinner isVisible={showSpinner} style={{ right: '4px' }} aria-label="Loading" />
       </div>
     </label>
   );

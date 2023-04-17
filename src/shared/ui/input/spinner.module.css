@@ -1,10 +1,8 @@
 .spinner {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 
-  width: 16px;
-  height: 16px;
+  width: .75em;
+  height: .75em;
 
   border: 2px solid #ccc;
   border-top-color: transparent;
