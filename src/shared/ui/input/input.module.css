@@ -3,4 +3,12 @@
 
   display: flex;
   align-items: center;
+
+  margin: 0;
+  outline: none;
+  padding: .5rem;
+}
+
+input:focus {
+  outline: none;
 }
