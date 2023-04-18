@@ -54,8 +54,6 @@ blockquote::before {
 }
 
 .app {
-  display: flex;
   max-width: 500px;
   padding: 16px;
-  box-sizing: content-box;
 }
