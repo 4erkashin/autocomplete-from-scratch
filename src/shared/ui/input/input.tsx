@@ -1,5 +1,4 @@
-import React, { useState, useMemo, useId, ChangeEvent } from 'react';
-import { clsx } from 'clsx';
+import React, { useState, useId, ChangeEvent } from 'react';
 
 import { Spinner } from './spinner';
 import styles from './input.module.css';
@@ -13,19 +12,6 @@ export const Input: React.FC<InputProps> = ({ label }) => {
 
   const [inputValue, setInputValue] = useState('');
   const [showSpinner, setShowSpinner] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-
-  const shouldFloatLabel = useMemo(
-    () => inputValue !== '' || isFocused,
-    [inputValue, isFocused]
-  );
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -42,18 +28,12 @@ export const Input: React.FC<InputProps> = ({ label }) => {
         type="text"
         className={styles.input}
         aria-labelledby={labeledById}
+        placeholder={label}
         value={inputValue}
         onChange={handleInputChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
       />
 
-      <span
-        className={clsx(styles.floatingLabel, {
-          [styles.floatedUp]: shouldFloatLabel,
-        })}
-        id={labeledById}
-      >
+      <span className={styles.floatingLabel} id={labeledById}>
         {label}
       </span>
 
