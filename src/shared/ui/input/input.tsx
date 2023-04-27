@@ -2,15 +2,19 @@ import React, { useState, useId, ChangeEvent } from 'react';
 
 import styles from './input.module.css';
 
-type InputProps = {
+export type InputProps = React.HTMLAttributes<HTMLInputElement> & {
+  onChange?: Function;
   label: string;
 };
 
-export const Input: React.FC<InputProps> = ({ label }) => {
+export const Input: React.FC<InputProps> = ({ label, onChange, ...rest }) => {
   const labeledById = useId();
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event);
+    }
     setInputValue(event.target.value);
   };
 
@@ -23,6 +27,7 @@ export const Input: React.FC<InputProps> = ({ label }) => {
         placeholder={label}
         value={inputValue}
         onChange={handleInputChange}
+        {...rest}
       />
 
       <span className={styles.floatingLabel} id={labeledById}>
